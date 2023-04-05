@@ -101,4 +101,22 @@ public class LinkedList {
         }
         length++;
     }
+
+    public Node removeFirst() {
+        // Case 1: Empty linked list
+        if (length == 0) return null;
+        
+        // Case 2: Multiple items in linked list
+        Node temp = head;
+
+        head = head.next;
+        temp.next = null;
+        length--;
+
+        // Case 3: Start with 1 item in linked list (Tail will still be pointing to the node after the above steps)
+        if (length == 0) {
+            tail = null;
+        }
+        return temp;
+    }
 }
