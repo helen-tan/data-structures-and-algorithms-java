@@ -52,4 +52,17 @@ public class LinkedList {
         System.out.println("Length: " + length);
     }
 
+    public void append(int value) {
+        Node newNode = new Node(value);
+        // If linkedlist is empty, head & tail should point at the new node
+        if (length == 0) {
+            head = newNode;
+            tail = newNode;
+        } else { // linkedlist not empty
+            tail.next = newNode;
+            tail = newNode;
+        }
+        length++;
+    }
+
 }
