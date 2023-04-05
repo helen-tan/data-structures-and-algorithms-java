@@ -28,11 +28,22 @@ public class Main {
         // myLinkedList.printList();
 
         // REMOVE FIRST
-        LinkedList myLinkedList = new LinkedList(2);
-        myLinkedList.append(1);
+        // LinkedList myLinkedList = new LinkedList(2);
+        // myLinkedList.append(1);
 
-        System.out.println(myLinkedList.removeFirst().value); // 2 items
-        System.out.println(myLinkedList.removeFirst().value); // 1 item
-        System.out.println(myLinkedList.removeFirst());       // 0 items
+        // System.out.println(myLinkedList.removeFirst().value); // 2 items
+        // System.out.println(myLinkedList.removeFirst().value); // 1 item
+        // System.out.println(myLinkedList.removeFirst());       // 0 items
+
+        // Get a node at a specific index
+        LinkedList myLinkedList = new LinkedList(0);
+        myLinkedList.append(1);
+        myLinkedList.append(2);
+        myLinkedList.append(3);
+
+        System.out.println(myLinkedList.get(2).value + "\n");
+
+        myLinkedList.printList();
+
     }
 }

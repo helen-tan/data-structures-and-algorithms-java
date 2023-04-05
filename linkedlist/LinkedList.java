@@ -119,4 +119,23 @@ public class LinkedList {
         }
         return temp;
     }
+
+    // Get a Node at a specific index
+    public Node get(int index) {
+        if (index < 0 || index >= length) return null;
+
+        int count = 0;
+        Node temp;
+        temp = head;
+
+        while(count != index) {
+            temp = temp.next;
+            count++;
+        }
+        // or
+        // for(int i = 0; i < index; i++){
+        //     temp = temp.next;
+        // }
+        return temp;
+    }
 }
