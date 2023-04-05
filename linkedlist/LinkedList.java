@@ -65,4 +65,26 @@ public class LinkedList {
         length++;
     }
 
+    public Node removeLast() {
+        // Scenario 1: linkedlist starts empty
+        if (length == 0) return null;
+
+        Node temp = head;
+        Node pre = head;
+        // Scenario 2: If >1 items in linkedlist
+        while (temp.next != null) {
+            pre = temp;
+            temp = temp.next;
+        }
+        tail = pre;       // make tail point to the 2nd last node
+        tail.next = null; // break away last node by making 2nd last node point to null
+        length--;
+
+        // Scenario 3: Start out with only 1 item in linkedlist (temp.next will = null so while loop above won't run)
+        if (length == 0) { // when there is only 1 item, length = 0 as it was decremented to 0 above (1 -1 = 0). A problem to handle as head & tail shouldnt be pointing to a node when length = zero
+            head = null;
+            tail = null;
+        }
+        return temp;
+    }
 }
