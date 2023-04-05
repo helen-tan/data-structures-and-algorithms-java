@@ -87,4 +87,18 @@ public class LinkedList {
         }
         return temp;
     }
+
+    public void prepend(int value) {
+        Node newNode = new Node(value);
+        
+        // If start w empty linked list
+        if (length == 0) { // of if head = null
+            head = newNode;
+            tail = newNode;
+        } else {
+            newNode.next = head;
+            head = newNode;
+        }
+        length++;
+    }
 }

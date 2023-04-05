@@ -3,7 +3,7 @@ package linkedlist;
 public class Main {
 
     public static void main(String args[]) {
-        LinkedList myLinkedList = new LinkedList(1);
+        //LinkedList myLinkedList = new LinkedList(1);
 
         // myLinkedList.getHead();
         // myLinkedList.getTail();
@@ -12,11 +12,19 @@ public class Main {
         // System.out.println("\nLinked List:");
         // myLinkedList.printList();
 
-        myLinkedList.append(2);
+        // APPEND
+        // myLinkedList.append(2);
 
-        System.out.println(myLinkedList.removeLast().value);
-        System.out.println(myLinkedList.removeLast().value);
-        System.out.println(myLinkedList.removeLast());
-        
+        // System.out.println(myLinkedList.removeLast().value);
+        // System.out.println(myLinkedList.removeLast().value);
+        // System.out.println(myLinkedList.removeLast());
+
+        // PREPEND
+        LinkedList myLinkedList = new LinkedList(2);
+        myLinkedList.append(3);
+
+        myLinkedList.prepend(1);
+
+        myLinkedList.printList();
     }
 }
