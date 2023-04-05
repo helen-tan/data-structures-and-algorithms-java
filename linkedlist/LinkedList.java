@@ -138,4 +138,16 @@ public class LinkedList {
         // }
         return temp;
     }
+
+    // Set the value of a node at a specific index
+    public boolean set(int index, int value) {
+        // Get a pointer to the Node at the specified index
+        Node temp = get(index); // Leverage the get() method!
+
+        if (temp != null) { // Check if temp is pointing to a node or null
+            temp.value = value;
+            return true;
+        } 
+        return false;
+    }
 }

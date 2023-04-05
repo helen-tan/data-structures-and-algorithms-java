@@ -36,12 +36,22 @@ public class Main {
         // System.out.println(myLinkedList.removeFirst());       // 0 items
 
         // Get a node at a specific index
-        LinkedList myLinkedList = new LinkedList(0);
-        myLinkedList.append(1);
-        myLinkedList.append(2);
-        myLinkedList.append(3);
+        // LinkedList myLinkedList = new LinkedList(0);
+        // myLinkedList.append(1);
+        // myLinkedList.append(2);
+        // myLinkedList.append(3);
 
-        System.out.println(myLinkedList.get(2).value + "\n");
+        // System.out.println(myLinkedList.get(2).value + "\n");
+
+        // myLinkedList.printList();
+
+        // Set the value of a node at a specific index
+        LinkedList myLinkedList = new LinkedList(11);
+        myLinkedList.append(3);
+        myLinkedList.append(23);
+        myLinkedList.append(7);
+
+        myLinkedList.set(1, 4);
 
         myLinkedList.printList();
 
