@@ -56,9 +56,19 @@ public class Main {
         // myLinkedList.printList();
 
         //  Insert in the middle of linked list
-        LinkedList myLinkedList = new LinkedList(0);
-        myLinkedList.append(2);
-        myLinkedList.insert(1, 34);
+        // LinkedList myLinkedList = new LinkedList(0);
+        // myLinkedList.append(2);
+        // myLinkedList.insert(1, 34);
+        // myLinkedList.printList();
+
+        // Remove a node at a specified index
+        LinkedList myLinkedList = new LinkedList(11);
+        myLinkedList.append(3);
+        myLinkedList.append(23);
+        myLinkedList.append(7);
+
+        myLinkedList.remove(2);
+
         myLinkedList.printList();
     }
 }

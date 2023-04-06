@@ -175,4 +175,23 @@ public class LinkedList {
         length++;
         return true;
     }
+
+    // Remove a node at a specified index
+    public Node remove(int index) {
+        // If index out of range
+        if (index < 0 || index >= length) return null;
+        // If index = 0 (remove first item)
+        if (index == 0) return removeFirst();
+        // If index = length - 1 (remove last item)
+        if (index == length - 1) removeLast();
+        
+        // If index in the middle
+        Node prev = get(index - 1);
+        Node temp = prev.next; // More efficient than temp = get(index), as get method is O(n). This way is O(1)
+
+        prev.next = temp.next;
+        temp.next = null;
+        length--;
+        return temp;
+    }
 }
