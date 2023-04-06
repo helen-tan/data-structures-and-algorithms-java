@@ -184,7 +184,7 @@ public class LinkedList {
         if (index == 0) return removeFirst();
         // If index = length - 1 (remove last item)
         if (index == length - 1) removeLast();
-        
+
         // If index in the middle
         Node prev = get(index - 1);
         Node temp = prev.next; // More efficient than temp = get(index), as get method is O(n). This way is O(1)
@@ -193,5 +193,23 @@ public class LinkedList {
         temp.next = null;
         length--;
         return temp;
+    }
+
+    // Reverse a linked list
+    public void reverse() {
+        // Reverse head and tail
+        Node temp = head;
+        head = tail;
+        tail = temp;
+        // Flip the next pointers
+        Node after = temp.next;
+        Node before = null;
+
+        for (int i = 0; i < length; i++) {
+            after = temp.next;
+            temp.next = before;
+            before = temp;
+            temp = after;
+        }
     }
 }
