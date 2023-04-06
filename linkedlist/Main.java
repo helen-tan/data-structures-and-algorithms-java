@@ -46,14 +46,19 @@ public class Main {
         // myLinkedList.printList();
 
         // Set the value of a node at a specific index
-        LinkedList myLinkedList = new LinkedList(11);
-        myLinkedList.append(3);
-        myLinkedList.append(23);
-        myLinkedList.append(7);
+        // LinkedList myLinkedList = new LinkedList(11);
+        // myLinkedList.append(3);
+        // myLinkedList.append(23);
+        // myLinkedList.append(7);
 
-        myLinkedList.set(1, 4);
+        // myLinkedList.set(1, 4);
 
+        // myLinkedList.printList();
+
+        //  Insert in the middle of linked list
+        LinkedList myLinkedList = new LinkedList(0);
+        myLinkedList.append(2);
+        myLinkedList.insert(1, 34);
         myLinkedList.printList();
-
     }
 }

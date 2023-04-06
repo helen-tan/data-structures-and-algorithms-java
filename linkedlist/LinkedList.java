@@ -150,4 +150,29 @@ public class LinkedList {
         } 
         return false;
     }
+
+    // Insert a node of a particular value at a specified index
+    public boolean insert(int index, int value) {
+        // If index out of range
+        if (index < 0 || index > length) return false;
+
+        // If index is 0
+        if (index == 0) {
+            prepend(value);
+            return true;
+        }
+        // If index = length (insert at the end/append)
+        if (index == length) {
+            append(value);
+            return true;
+        }
+        // If insert in the middle of linked list
+        Node newNode = new Node(value);
+        Node temp = get(index - 1); // Point at the node 1 place before the index we want to insert it
+
+        newNode.next = temp.next;
+        temp.next = newNode;
+        length++;
+        return true;
+    }
 }
