@@ -183,7 +183,7 @@ public class LinkedList {
         // If index = 0 (remove first item)
         if (index == 0) return removeFirst();
         // If index = length - 1 (remove last item)
-        if (index == length - 1) removeLast();
+        if (index == length - 1) return removeLast();
 
         // If index in the middle
         Node prev = get(index - 1);
