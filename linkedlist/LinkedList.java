@@ -212,4 +212,19 @@ public class LinkedList {
             temp = after;
         }
     }
+
+    // INTERVIEW QNS: Find Middle Node of LL (without using length)
+    public Node findMiddleNode() {
+        Node fast = head;
+        Node slow = head;
+
+        // Traverse the linked list with two pointers: slow and fas
+        while(fast != null && fast.next != null) {
+            slow = slow.next;          // slow moves one node at a time
+            fast = fast.next.next;     // while fast moves two nodes at a time
+        }
+        
+        // By the time the fast pointer reaches the end of the list, the slow pointer will be at the middle node.
+        return slow;
+    }
 }
