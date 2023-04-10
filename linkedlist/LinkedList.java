@@ -1,5 +1,8 @@
 package linkedlist;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class LinkedList {
     // Class variables
     private Node head;
@@ -277,7 +280,7 @@ public class LinkedList {
         return get(length - k);
     }
 
-    // // INTERVIEW QNS: Find Kth Node from the end (ALTERNATIVE METHOD)
+    // INTERVIEW QNS: Find Kth Node from the end (ALTERNATIVE METHOD)
     public Node findKthNode2(int k) {
         Node slow = head;
         Node fast = head;
@@ -297,5 +300,27 @@ public class LinkedList {
         // Since the fast pointer is already k steps ahead of the slow pointer, 
         // when the fast pointer reaches the end of the LinkedList, the slow pointer will be at the kth node from the end.
         return slow; // Return the kth node from the end (slow pointer)
+    }
+
+    // INTERVIEW QNS: Remove Duplicates
+    public void removeDuplicates() {
+        Set<Integer> values = new HashSet<>();
+
+        Node previous = null;
+        Node current = head;
+
+        while (current != null) {
+            // Check if value is already in Hashset (is a duplicate)
+            // If yes, remove the node from the LL. If not, add to Hashset. 
+            if (values.contains(current.value)) {
+                previous.next = current.next;
+                length--;
+            } else {
+                values.add(current.value);
+                previous = current;
+            }
+            // Move to the next node
+            current = current.next;
+        }
     }
 }
