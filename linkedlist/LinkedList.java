@@ -227,4 +227,21 @@ public class LinkedList {
         // By the time the fast pointer reaches the end of the list, the slow pointer will be at the middle node.
         return slow;
     }
+
+    // INTERVIEW QNS: Check if LL has a loop
+    public boolean hasLoop() {
+        Node fast = head;
+        Node slow = head;
+
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+
+            // If slow pointer meets fast pointer, then there is a loop in the linked list
+            if (fast == slow) return true;
+        }
+
+        // If the loop has not been detected after the traversal, then there is no loop in the linked list
+        return false;
+    }
 }
