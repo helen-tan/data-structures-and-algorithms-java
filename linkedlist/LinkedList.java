@@ -265,12 +265,37 @@ public class LinkedList {
     // INTERVIEW QNS: Find Kth Node from the end
     public Node findKthFromEnd(int k) {
         // If k is out of range
-        if (k <= 0 || k > length) return null;
+        if (k <= 0 || k > length)
+            return null;
         // If k is 1, meaning last node
-        if (k == 1) return getTail();
+        if (k == 1)
+            return getTail();
         // If k = length, meaning 1st node
-        if (k == length) return getHead();
+        if (k == length)
+            return getHead();
         // In between nodes
         return get(length - k);
+    }
+
+    // // INTERVIEW QNS: Find Kth Node from the end (ALTERNATIVE METHOD)
+    public Node findKthNode2(int k) {
+        Node slow = head;
+        Node fast = head;
+
+        // Move fast pointer k steps ahead
+        for (int i = 0; i < k; i++) {
+            // If k is out of bounds, return null
+            if (fast == null) return null;
+            fast = fast.next;
+        }
+
+        // Move both pointers until fast reaches the end
+        while (fast != null) {
+            slow = slow.next; // Move the slow pointer to the next node
+            fast = fast.next; // Move the fast pointer to the next node
+        }
+        // Since the fast pointer is already k steps ahead of the slow pointer, 
+        // when the fast pointer reaches the end of the LinkedList, the slow pointer will be at the kth node from the end.
+        return slow; // Return the kth node from the end (slow pointer)
     }
 }
