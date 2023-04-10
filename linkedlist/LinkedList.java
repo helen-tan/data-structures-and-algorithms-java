@@ -7,15 +7,15 @@ public class LinkedList {
     private int length;
 
     // Node class (inner/nested class)
-	class Node {
+    class Node {
         int value;
         Node next;
-        
-        Node (int value) {
+
+        Node(int value) {
             this.value = value;
         }
     }
-    
+
     // Constructor - initializes LL's head & tail to a new node
     public LinkedList(int value) {
         Node newNode = new Node(value);
@@ -23,7 +23,7 @@ public class LinkedList {
         tail = newNode;
         length = 1;
     }
-	
+
     public void printList() {
         Node temp = head;
         while (temp != null) {
@@ -32,20 +32,22 @@ public class LinkedList {
         }
     }
 
-    public void getHead() {
+    public Node getHead() {
         if (head == null) {
             System.out.println("Head: null");
         } else {
             System.out.println("Head: " + head.value);
         }
+        return head;
     }
 
-    public void getTail() {
+    public Node getTail() {
         if (head == null) {
             System.out.println("Tail: null");
         } else {
             System.out.println("Tail: " + tail.value);
         }
+        return tail;
     }
 
     public void getLength() {
@@ -67,7 +69,8 @@ public class LinkedList {
 
     public Node removeLast() {
         // Scenario 1: linkedlist starts empty
-        if (length == 0) return null;
+        if (length == 0)
+            return null;
 
         Node temp = head;
         Node pre = head;
@@ -76,12 +79,15 @@ public class LinkedList {
             pre = temp;
             temp = temp.next;
         }
-        tail = pre;       // make tail point to the 2nd last node
+        tail = pre; // make tail point to the 2nd last node
         tail.next = null; // break away last node by making 2nd last node point to null
         length--;
 
-        // Scenario 3: Start out with only 1 item in linkedlist (temp.next will = null so while loop above won't run)
-        if (length == 0) { // when there is only 1 item, length = 0 as it was decremented to 0 above (1 -1 = 0). A problem to handle as head & tail shouldnt be pointing to a node when length = zero
+        // Scenario 3: Start out with only 1 item in linkedlist (temp.next will = null
+        // so while loop above won't run)
+        if (length == 0) { // when there is only 1 item, length = 0 as it was decremented to 0 above (1 -1
+                           // = 0). A problem to handle as head & tail shouldnt be pointing to a node when
+                           // length = zero
             head = null;
             tail = null;
         }
@@ -90,7 +96,7 @@ public class LinkedList {
 
     public void prepend(int value) {
         Node newNode = new Node(value);
-        
+
         // If start w empty linked list
         if (length == 0) { // of if head = null
             head = newNode;
@@ -104,8 +110,9 @@ public class LinkedList {
 
     public Node removeFirst() {
         // Case 1: Empty linked list
-        if (length == 0) return null;
-        
+        if (length == 0)
+            return null;
+
         // Case 2: Multiple items in linked list
         Node temp = head;
 
@@ -113,7 +120,8 @@ public class LinkedList {
         temp.next = null;
         length--;
 
-        // Case 3: Start with 1 item in linked list (Tail will still be pointing to the node after the above steps)
+        // Case 3: Start with 1 item in linked list (Tail will still be pointing to the
+        // node after the above steps)
         if (length == 0) {
             tail = null;
         }
@@ -122,19 +130,20 @@ public class LinkedList {
 
     // Get a Node at a specific index
     public Node get(int index) {
-        if (index < 0 || index >= length) return null;
+        if (index < 0 || index >= length)
+            return null;
 
         int count = 0;
         Node temp;
         temp = head;
 
-        while(count != index) {
+        while (count != index) {
             temp = temp.next;
             count++;
         }
         // or
         // for(int i = 0; i < index; i++){
-        //     temp = temp.next;
+        // temp = temp.next;
         // }
         return temp;
     }
@@ -147,14 +156,15 @@ public class LinkedList {
         if (temp != null) { // Check if temp is pointing to a node or null
             temp.value = value;
             return true;
-        } 
+        }
         return false;
     }
 
     // Insert a node of a particular value at a specified index
     public boolean insert(int index, int value) {
         // If index out of range
-        if (index < 0 || index > length) return false;
+        if (index < 0 || index > length)
+            return false;
 
         // If index is 0
         if (index == 0) {
@@ -179,15 +189,19 @@ public class LinkedList {
     // Remove a node at a specified index
     public Node remove(int index) {
         // If index out of range
-        if (index < 0 || index >= length) return null;
+        if (index < 0 || index >= length)
+            return null;
         // If index = 0 (remove first item)
-        if (index == 0) return removeFirst();
+        if (index == 0)
+            return removeFirst();
         // If index = length - 1 (remove last item)
-        if (index == length - 1) return removeLast();
+        if (index == length - 1)
+            return removeLast();
 
         // If index in the middle
         Node prev = get(index - 1);
-        Node temp = prev.next; // More efficient than temp = get(index), as get method is O(n). This way is O(1)
+        Node temp = prev.next; // More efficient than temp = get(index), as get method is O(n). This way is
+                               // O(1)
 
         prev.next = temp.next;
         temp.next = null;
@@ -219,12 +233,13 @@ public class LinkedList {
         Node slow = head;
 
         // Traverse the linked list with two pointers: slow and fas
-        while(fast != null && fast.next != null) {
-            slow = slow.next;          // slow moves one node at a time
-            fast = fast.next.next;     // while fast moves two nodes at a time
+        while (fast != null && fast.next != null) {
+            slow = slow.next; // slow moves one node at a time
+            fast = fast.next.next; // while fast moves two nodes at a time
         }
-        
-        // By the time the fast pointer reaches the end of the list, the slow pointer will be at the middle node.
+
+        // By the time the fast pointer reaches the end of the list, the slow pointer
+        // will be at the middle node.
         return slow;
     }
 
@@ -233,15 +248,29 @@ public class LinkedList {
         Node fast = head;
         Node slow = head;
 
-        while(fast != null && fast.next != null){
+        while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
 
             // If slow pointer meets fast pointer, then there is a loop in the linked list
-            if (fast == slow) return true;
+            if (fast == slow)
+                return true;
         }
 
-        // If the loop has not been detected after the traversal, then there is no loop in the linked list
+        // If the loop has not been detected after the traversal, then there is no loop
+        // in the linked list
         return false;
+    }
+
+    // INTERVIEW QNS: Find Kth Node from the end
+    public Node findKthFromEnd(int k) {
+        // If k is out of range
+        if (k <= 0 || k > length) return null;
+        // If k is 1, meaning last node
+        if (k == 1) return getTail();
+        // If k = length, meaning 1st node
+        if (k == length) return getHead();
+        // In between nodes
+        return get(length - k);
     }
 }
