@@ -354,4 +354,36 @@ public class LinkedList {
         head = dummy.next;
     }
 
+    // INTERVIEW QNS: Partition list
+    // rearranges the linked list in such a way that all nodes with values less than "x" come before nodes with values greater than or equal to "x".
+    public void partitionList(int x) {
+        // If linked list is empty, return
+        if (head == null) return;
+
+        // Create dummy nodes for 2 new lists  
+        Node dummy1 = new Node(0);
+        Node dummy2 = new Node(0);
+        // Initialize pointers for the new lists
+        Node prev1 = dummy1;
+        Node prev2 = dummy2;
+        // Start iterating from the head
+        Node current = head;
+
+        while (current.next != null) {
+            // Add nodes to the 2 lists based on their value
+            if (current.value < x) {
+                prev1.next = current;
+                prev1 = current;
+            } else {
+                prev2.next = current;
+                prev2 = current;
+            }
+            current = current.next;    // Move to the next node
+        }
+
+        prev2.next = null;             // Mark the end of the 2nd list
+        prev1.next = dummy2.next;      // Connect the 2 lists 
+        head = dummy1.next;            // Update the head of the list
+    }
+
 }
