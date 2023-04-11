@@ -323,4 +323,35 @@ public class LinkedList {
             current = current.next;
         }
     }
+
+    // INTERVIEW QNS: Reverse Nodes between index m & n
+    public void reverseBetween(int m, int n) {
+        // Return if the linked list is empty
+        if (head == null) return;
+        
+        // Create a dummy node and connect it to head
+        Node dummy = new Node(0);
+        dummy.next = head;
+        Node prev = dummy;
+        
+        // Move prev to the node before sublist start
+        for (int i = 0; i < m; i++) {
+            prev = prev.next;
+        }
+        
+        // Initialize current to the first node in sublist
+        Node current = prev.next;
+        
+        // Reverse the sublist
+        for (int i = 0; i < n-m; i++) {
+            Node temp = current.next;
+            current.next = temp.next;
+            temp.next = prev.next;;
+            prev.next = temp;
+        }
+
+        // Update the head of the entire linked list 
+        head = dummy.next;
+    }
+
 }
