@@ -144,4 +144,15 @@ public class DoublyLinkedList {
         }
         return temp;
     }
+
+    // Set the value of a node at a specified index
+    public boolean set(int index, int value) {
+        Node temp = get(index);
+
+        if (temp != null) {   // If temp is pointing to a node (the get method can return a null if index is out of range)
+            temp.value = value;
+            return true;
+        }
+        return false;
+    }
 }
