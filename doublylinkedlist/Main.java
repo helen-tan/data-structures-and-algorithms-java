@@ -24,10 +24,18 @@ public class Main {
         // System.out.println(myDLL.removeLast());
 
         // PREPEND
-        DoublyLinkedList myDLL = new DoublyLinkedList(2);
-        myDLL.append(3);
+        // DoublyLinkedList myDLL = new DoublyLinkedList(2);
+        // myDLL.append(3);
 
-        myDLL.prepend(1);
-        myDLL.printList();
+        // myDLL.prepend(1);
+        // myDLL.printList();
+
+        // REMOVE FIRST
+        DoublyLinkedList myDLL = new DoublyLinkedList(2);
+        myDLL.append(1);
+
+        System.out.println(myDLL.removeFirst().value);
+        System.out.println(myDLL.removeFirst().value);
+        System.out.println(myDLL.removeFirst());
     }
 }
