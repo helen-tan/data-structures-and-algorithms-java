@@ -122,4 +122,26 @@ public class DoublyLinkedList {
         return temp;
     }
 
+    // Get node at a specified index
+    // The same way for singly linked list will work for doubly linked list
+    // Except with doubly linked lists, the code can be more efficient as there are pointers pointing the other way
+    public Node get(int index) {
+        // Index out of range
+        if (index == 0 || index >= length)  return null;
+
+        Node temp = head;
+
+        // If index is in the 1st half of the DLL, start iterating from the head. Else if index is in 2nd half, start iterating from the tail
+        if (index < length/2) {
+            for(int i = 0; i < index; i++ ) {
+                temp = temp.next;
+            }
+        } else {
+            temp = tail;
+            for(int i = length - 1; i > index; i--) {
+                temp = temp.prev;
+            }
+        }
+        return temp;
+    }
 }

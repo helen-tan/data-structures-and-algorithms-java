@@ -31,11 +31,23 @@ public class Main {
         // myDLL.printList();
 
         // REMOVE FIRST
-        DoublyLinkedList myDLL = new DoublyLinkedList(2);
-        myDLL.append(1);
+        // DoublyLinkedList myDLL = new DoublyLinkedList(2);
+        // myDLL.append(1);
 
-        System.out.println(myDLL.removeFirst().value);
-        System.out.println(myDLL.removeFirst().value);
-        System.out.println(myDLL.removeFirst());
+        // System.out.println(myDLL.removeFirst().value);
+        // System.out.println(myDLL.removeFirst().value);
+        // System.out.println(myDLL.removeFirst());
+
+        // GET
+        DoublyLinkedList myDLL = new DoublyLinkedList(0);
+        myDLL.append(1);
+        myDLL.append(2);
+        myDLL.append(3);
+
+        System.out.println(myDLL.get(1).value);
+        System.out.println(myDLL.get(2).value + "\n");
+
+        myDLL.printList();
+
     }
 }
