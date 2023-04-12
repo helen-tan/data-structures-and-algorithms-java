@@ -67,4 +67,24 @@ public class DoublyLinkedList {
         return;
     }
 
+    public Node removeLast() {
+        // If DLL has no nodes
+        if (length == 0) return null;
+        
+        Node temp = tail;
+
+        // If DLL has 1 node
+        if (length == 1) {
+            head = null;
+            tail = null;
+        } else {   // >=2 nodes
+            tail = tail.prev;
+            tail.next = null;
+            temp.prev = null;
+        }
+        length--;
+
+        return temp;
+    }
+
 }

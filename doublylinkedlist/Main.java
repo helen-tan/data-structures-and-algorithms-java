@@ -10,9 +10,17 @@ public class Main {
         // myDLL.printList();
 
         // APPEND
-        DoublyLinkedList myDLL = new DoublyLinkedList(1);
+        // DoublyLinkedList myDLL = new DoublyLinkedList(1);
 
+        // myDLL.append(2);
+        // myDLL.printList();
+
+        // REMOVE LAST
+        DoublyLinkedList myDLL = new DoublyLinkedList(1);
         myDLL.append(2);
-        myDLL.printList();
+
+        System.out.println(myDLL.removeLast().value);
+        System.out.println(myDLL.removeLast().value);
+        System.out.println(myDLL.removeLast());
     }
 }
