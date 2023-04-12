@@ -50,4 +50,21 @@ public class DoublyLinkedList {
         System.out.println("Length: " + length);
     }
 
+    public void append(int value) {
+        Node newNode = new Node(value);
+
+        // Check if DLL is empty
+        if (head == null) {           
+            head = newNode;
+            tail = newNode;
+        } else {
+            tail.next = newNode;
+            newNode.prev = tail;
+            tail = newNode;
+        }
+        length++;
+
+        return;
+    }
+
 }
