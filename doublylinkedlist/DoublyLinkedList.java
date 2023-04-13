@@ -127,7 +127,7 @@ public class DoublyLinkedList {
     // Except with doubly linked lists, the code can be more efficient as there are pointers pointing the other way
     public Node get(int index) {
         // Index out of range
-        if (index == 0 || index >= length)  return null;
+        if (index < 0 || index >= length)  return null;
 
         Node temp = head;
 
@@ -154,5 +154,32 @@ public class DoublyLinkedList {
             return true;
         }
         return false;
+    }
+
+    public boolean insert(int index, int value) {
+        // index out of range
+        if (index < 0 || index > length) return false;
+        // Adding infront
+        if (index == 0) {
+            prepend(value);
+            return true;
+        }
+        // Adding behind
+        if (index == length) {
+            append(value);
+            return true;
+        }
+        // Adding in the middle
+        Node newNode = new Node(value);
+        Node before = get(index - 1);
+        Node after = before.next;
+
+        before.next = newNode;
+        newNode.prev = before;
+        newNode.next = after;
+        after.prev = newNode;
+
+        length++;
+        return true;
     }
 }
