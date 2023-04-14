@@ -225,4 +225,20 @@ public class DoublyLinkedList {
         head = tail;
         tail = temp;
     }
+
+    // INTERVIEW QNS: Palindrome: Check if DLL reads the same forwards and backwards
+    public boolean isPalindrome() {
+        if (length <= 1) return true;
+
+        Node forwardNode = head;
+        Node backwardNode = tail;
+
+        for (int i = 0; i < length / 2; i++) {
+            if (forwardNode.value != backwardNode.value) return false;
+
+            forwardNode = forwardNode.next;
+            backwardNode = backwardNode.prev;
+        }
+        return true;
+    }
 }
