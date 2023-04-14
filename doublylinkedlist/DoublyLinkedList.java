@@ -202,9 +202,27 @@ public class DoublyLinkedList {
     // INTERVIEW QNS: Swap 1st & last values
     public void swapFirstLast() {
         if (length < 2) return;
-        
+
         int temp = head.value;
         head.value = tail.value;
         tail.value = temp;
+    }
+
+    // INTERVIEW QNS: Reverse order of nodes in the DLL
+    public void reverse() {
+        // Traverse list and make the nodes' next and prev point the opposite way
+        Node current = head;
+        Node before = null;
+
+        while(current != null) {
+            before = current.prev;
+            current.prev = current.next;
+            current.next = before;
+            current = current.prev; // Point to the next node. Its prev and not next bcos prev now points to the next node
+        }
+        // Swap the head & tail pointers
+        Node temp = head;
+        head = tail;
+        tail = temp;
     }
 }
