@@ -198,4 +198,13 @@ public class DoublyLinkedList {
 
         return temp;
     }
+
+    // INTERVIEW QNS: Swap 1st & last values
+    public void swapFirstLast() {
+        if (length < 2) return;
+        
+        int temp = head.value;
+        head.value = tail.value;
+        tail.value = temp;
+    }
 }
