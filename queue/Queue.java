@@ -1,6 +1,7 @@
 package queue;
 
 // We use a Singly linked-linked list to represent a Queue
+// FIFO system
 public class Queue {
     private Node first;
     private Node last;
@@ -10,7 +11,7 @@ public class Queue {
         int value;
         Node next;
 
-        Node (int value) {
+        Node(int value) {
             this.value = value;
         }
     }
@@ -33,7 +34,7 @@ public class Queue {
     public void getFirst() {
         System.out.println("First: " + first.value);
     }
-    
+
     public void getLast() {
         System.out.println("Length: " + length);
     }
@@ -42,4 +43,17 @@ public class Queue {
         System.out.println("Last: " + last.value);
     }
 
+    // To Enqueue is to add from the end (last)
+    public void enqueue(int value) {
+        Node newNode = new Node(value);
+
+        if (length == 0) {
+            first = newNode;
+            last = newNode;
+        } else {
+            last.next = newNode;
+            last = newNode;
+        }
+        length++;
+    }
 }
