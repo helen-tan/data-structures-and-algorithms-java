@@ -56,4 +56,24 @@ public class Queue {
         }
         length++;
     }
+
+    // Dequeue: Remove the first item
+    public Node dequeue() {
+        // Empty queue
+        if (length == 0) return null;
+
+        Node temp = first;
+
+        // If 1 item in the queue
+        if (length == 1) {
+            first = null;
+            last = null;
+        } else {
+            first = first.next;
+            temp.next = null;
+        }
+        length--;
+
+        return temp;
+    }
 }
