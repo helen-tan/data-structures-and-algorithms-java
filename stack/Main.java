@@ -10,8 +10,17 @@ public class Main {
         // myStack.printStack();
 
         // Push
-        Stack myStack = new Stack(2);
-        myStack.push(1);
+        // Stack myStack = new Stack(2);
+        // myStack.push(1);
+        // myStack.printStack();
+
+        // Pop
+        Stack myStack = new Stack(7);
+        myStack.push(23);
+        myStack.push(3);
+        myStack.push(11);
+
+        myStack.pop();
         myStack.printStack();
     }
 }
