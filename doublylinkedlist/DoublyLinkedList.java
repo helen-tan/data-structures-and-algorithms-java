@@ -241,4 +241,38 @@ public class DoublyLinkedList {
         }
         return true;
     }
+
+    // INTERVIEW QNS: Sqap nodes in pairs
+    public void swapPairs() {
+        // Create dummy node to keep track of new head
+        Node dummy = new Node(0);
+        dummy.next = head;
+        Node prev = dummy;
+        
+        // Iterate through the DLL while there are at least 2 nodes left to swap
+        while(head != null && head.next != null) {
+            // Identify the 2 nodes to be swapped
+            Node firstNode = head;
+            Node secondNode = head.next;
+            
+            // Swap nodes and update the connections
+            prev.next = secondNode;
+            firstNode.next = secondNode.next;
+            secondNode.next = firstNode;
+            
+            secondNode.prev = prev;
+            firstNode.prev = secondNode;
+            
+            // Make sure there is still a pair after this pair
+            if (firstNode.next != null) {
+                firstNode.next.prev = firstNode;
+            }
+            
+            // Move to the next pair in the list
+            head = firstNode.next;
+            prev = firstNode;
+        }
+        // Update the head of the list to the new head
+        this.head = dummy.next;
+    }
 }
