@@ -2,6 +2,7 @@ package stack;
 
 import java.util.ArrayList;
 
+// Stack implemented using an ArrayList
 public class Stack2<T> {
 
     private ArrayList<T> stackList = new ArrayList<>();
@@ -37,4 +38,9 @@ public class Stack2<T> {
          stackList.add(value);
     }
     
+    // Remove last element of Stack
+    public T pop() {
+        if (isEmpty()) return null;
+        return stackList.remove(stackList.size() - 1); // stackList is zero-indexed
+    }
 }
